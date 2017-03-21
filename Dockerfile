@@ -6,8 +6,11 @@ ENV PYTHONUNBUFFERED 1
 
 RUN mkdir -p /root/app
 WORKDIR /root/app
-COPY . /root/app
+
+COPY requirements.txt /root/app/requirements.txt
 RUN pip3 install --no-cache-dir -r requirements.txt
+
+COPY . /root/app
 
 EXPOSE 9099
 
