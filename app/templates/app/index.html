@@ -1,0 +1,9 @@
+{% if sleeps %}
+<ul>
+    {% for sleep in sleeps %}
+    <li>{{ sleep.time_of_sleep }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No sleep record found.</p>
+{% endif %}
