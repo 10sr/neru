@@ -15,7 +15,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+SECRET_KEY = os.environ["NERU_SECRET_KEY"]
 
 DEBUG = False
 
@@ -70,7 +70,7 @@ WSGI_APPLICATION = 'neru.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.environ["DJANGO_SQLITE3_PATH"],
+        'NAME': os.environ["NERU_SQLITE3_PATH"],
     }
 }
 
