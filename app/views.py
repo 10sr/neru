@@ -56,5 +56,5 @@ def user_post(request, username):
         id_str="",
         datetime=timezone.now(),
         time_of_sleep=time_of_sleep
-    ).save
+    ).save()
     return HttpResponseRedirect(reverse("app:user", args=(username,)))
