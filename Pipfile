@@ -1,0 +1,15 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+Django = "==1.10.6"
+pyparsing = "==2.2.0"
+
+
+[dev-packages]
+
