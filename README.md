@@ -8,5 +8,5 @@ neru
 Development
 -----------
 
-    pipenv install --ignore-pipfile
+    pipenv install --deploy
     pipenv run ./manage.py runserver
