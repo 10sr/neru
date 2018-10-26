@@ -16,9 +16,15 @@ migrate:
 makemigrations:
 	${manage_py} makemigrations ${APP}
 
-
+# Print sql query for migration
 sqlmigrate:
 	${manage_py} sqlmigrate ${APP} ${target}
+
+createsuperuser:
+	${manage_py} createsuperuser
+
+shell:
+	${manage_py} shell
 
 manage_py:
 	${manage_py} ${command}

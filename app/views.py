@@ -9,7 +9,7 @@ from app import models
 
 
 def index(request):
-    return HttpResponse("hell, world!")
+    return HttpResponse("""hell, world! <a href="admin">admin</a>""")
 
 
 def user(request, username):
