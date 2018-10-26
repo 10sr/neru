@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.http import HttpResponseRedirect
+
+def redirect_root(request):
+    return HttpResponseRedirect("neru/")
 
 urlpatterns = [
     url(r"^neru/admin/", admin.site.urls),
     url(r"^neru/", include("app.urls")),
+    url(r"^$", redirect_root)
 ]
