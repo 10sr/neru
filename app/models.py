@@ -16,7 +16,7 @@ class TimeOfSleep(models.Model):
         n = TwitterUsername.get(id_str=self.id_str)
         return n.username
 
-class TwitterUsername(models.Model):
+class TwitterUser(models.Model):
     # Twitter id in number
     id_str = models.CharField(max_length=50)
     # Twitter screen name
