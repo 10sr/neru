@@ -3,7 +3,12 @@ NERU_ENV ?= local
 APP := app
 project := neru
 
-manage_py := env DJANGO_SETTINGS_MODULE=neru.settings_${NERU_ENV} pipenv run python3 manage.py
+pipenv := pipenv
+
+manage_py := ${pipenv} run env DJANGO_SETTINGS_MODULE=neru.settings_${NERU_ENV} python3 manage.py
+
+installdeps:
+	${pipenv} install
 
 runserver:
 	${manage_py} runserver
