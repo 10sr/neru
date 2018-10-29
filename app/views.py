@@ -9,20 +9,35 @@ from app import models
 
 
 def index(request):
-    return HttpResponse("""hell, world! <a href="admin">admin</a>""")
+    return HttpResponse("""hell, world!
+    <a href="admin">admin</a>
+    <a href="user/10sr">10sr</a>
+    """)
 
 
 def user(request, username):
-    sleeps = models.TimeOfSleep.objects.filter(username=username)
-    if not sleeps:
-        raise Http404("No sleep time record found for {}".format(username))
-    template = loader.get_template("app/index.html")
-    return HttpResponse(
-        template.render({
-            "sleeps": sleeps,
-            "username": username
-        }, request)
-    )
+    # TODO: Fix when username not found
+    try:
+        user = models.TwitterUser.objects.filter(username=username)[0]
+    except IndexError:
+        raise Http404("User {} not found".format(username))
+
+    template = loader.get_template("app/index.html.tpl")
+    # I don't like django.shortcuts.render.
+    return HttpResponse(template.render({
+        "user": user,
+        "sleeps": []
+    }, request))
+    # sleeps = models.TimeOfSleep.objects.filter(username=username)
+    # if not sleeps:
+    #     raise Http404("No sleep time record found for {}".format(username))
+    # template = loader.get_template("app/index.html")
+    # return HttpResponse(
+    #     template.render({
+    #         "sleeps": sleeps,
+    #         "username": username
+    #     }, request)
+    # )
 
 
 def user_post(request, username):

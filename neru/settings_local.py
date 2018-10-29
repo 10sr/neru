@@ -11,6 +11,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
+# TODO: Add file for common settings shared by both local and prod
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -53,6 +55,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'neru.urls'
 
+# TODO: Use jinja2
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
