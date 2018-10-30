@@ -4,6 +4,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.template import loader
 from django.utils import timezone
 from django.urls import reverse
+from django.views import generic
 
 from app import models
 
@@ -12,6 +13,7 @@ def index(request):
     return HttpResponse("""hell, world!
     <a href="admin">admin</a>
     <a href="user/10sr">10sr</a>
+    <a href="userview/10sr">10sr view</a>
     """)
 
 
@@ -28,16 +30,11 @@ def user(request, username):
         "user": user,
         "sleeps": models.TimeOfSleep.objects.filter(id_str=user.id_str)
     }, request))
-    # sleeps = models.TimeOfSleep.objects.filter(username=username)
-    # if not sleeps:
-    #     raise Http404("No sleep time record found for {}".format(username))
-    # template = loader.get_template("app/index.html")
-    # return HttpResponse(
-    #     template.render({
-    #         "sleeps": sleeps,
-    #         "username": username
-    #     }, request)
-    # )
+
+
+class UserView(generic.DetailView):
+    model = models.TwitterUser
+    template_name = "app/userview.html.tpl"
 
 
 def user_addneru(request, username):
