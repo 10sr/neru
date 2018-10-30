@@ -10,8 +10,8 @@ class TimeOfSleep(models.Model):
     note = models.CharField(max_length=500, default="")
 
     def __str__(self):
-        return "id_str: {}, tos: {}, record time: {}".format(
-            self.id_str, self.time_of_sleep, self.datetime
+        return "id_str: {}, tos: {}, record time: {}, note: {}".format(
+            self.id_str, self.time_of_sleep, self.datetime, self.note
         )
 
     def get_screenname(self):
@@ -33,3 +33,7 @@ class TwitterUser(models.Model):
         return "id_str: {}, username: {}".format(
             self.id_str, self.username
         )
+
+    @property
+    def str(self):
+        return str(self)

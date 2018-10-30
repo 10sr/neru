@@ -22,11 +22,11 @@ def user(request, username):
     except IndexError:
         raise Http404("User {} not found".format(username))
 
-    template = loader.get_template("app/index.html.tpl")
+    template = loader.get_template("app/user.html.tpl")
     # I don't like django.shortcuts.render.
     return HttpResponse(template.render({
         "user": user,
-        "sleeps": []
+        "sleeps": models.TimeOfSleep.objects.filter(id_str=user.id_str)
     }, request))
     # sleeps = models.TimeOfSleep.objects.filter(username=username)
     # if not sleeps:
@@ -40,36 +40,30 @@ def user(request, username):
     # )
 
 
-def user_post(request, username):
+def user_addneru(request, username):
     try:
-        posted_time_of_sleep = request.POST["time_of_sleep"]
+        user = models.TwitterUser.objects.filter(username=username)[0]
+    except IndexError:
+        raise Http404("User {} not found".format(username))
+
+    try:
+        note = request.POST["note"]
     except KeyError:
-        template = loader.get_template("app/index.html")
+        template = loader.get_template("app/user.html.tpl")
         return HttpResponse(
             template.render({
-                "sleeps": models.TimeOfSleep.objects.filter(username=username),
-                "error_message": "time_of_sleep not given",
-                "username": username
+                "sleeps": [],
+                "error_message": "note not given",
+                "user": user
             })
         )
 
-    try:
-        time_of_sleep = datetime.datetime.strptime(posted_time_of_sleep,
-                                                   "%Y%m%d")
-    except ValueError:
-        template = loader.get_template("app/index.html")
-        return HttpResponse(
-            template.render({
-                "sleeps": models.TimeOfSleep.objects.filter(username=username),
-                "error_message": "invalid time_of_sleep format",
-                "username": username
-            })
-        )
+    now = timezone.now()
 
     models.TimeOfSleep(
-        username=username,
-        id_str="",
-        datetime=timezone.now(),
-        time_of_sleep=time_of_sleep
+        id_str=user.id_str,
+        datetime=now,
+        time_of_sleep=now,
+        note=note
     ).save()
     return HttpResponseRedirect(reverse("app:user", args=(username,)))
