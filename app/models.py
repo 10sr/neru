@@ -7,6 +7,8 @@ class TimeOfSleep(models.Model):
     # Twitter id in number
     id_str = models.CharField(max_length=50)
 
+    note = models.CharField(max_length=500, default="")
+
     def __str__(self):
         return "id_str: {}, tos: {}, record time: {}".format(
             self.id_str, self.time_of_sleep, self.datetime
