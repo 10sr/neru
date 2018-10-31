@@ -36,3 +36,8 @@ manage_py:
 
 check:
 	pipenv check
+
+test: test_app
+
+test_app:
+	${manage_py} test app
