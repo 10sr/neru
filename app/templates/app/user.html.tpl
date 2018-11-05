@@ -1,3 +1,7 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}" />
+
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 <p>Userinfo: {{ user.str }}</p>
