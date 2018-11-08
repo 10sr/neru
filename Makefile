@@ -3,12 +3,12 @@ NERU_ENV ?= local
 APP := app
 project := neru
 
-pipenv := pipenv
+poetry := poetry
 
-manage_py := ${pipenv} run env DJANGO_SETTINGS_MODULE=neru.settings_${NERU_ENV} python3 manage.py
+manage_py := ${poetry} run env DJANGO_SETTINGS_MODULE=neru.settings_${NERU_ENV} python3 manage.py
 
 installdeps:
-	${pipenv} install
+	${poetry} install
 
 runserver:
 	${manage_py} runserver
@@ -35,7 +35,7 @@ manage_py:
 	${manage_py} ${command}
 
 check:
-	${pipenv} check
+	${poetry} check
 
 test: test_app
 
