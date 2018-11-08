@@ -1,0 +1,14 @@
+[[package]]
+category = "main"
+description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
+name = "django"
+optional = false
+python-versions = "*"
+version = "1.10.6"
+
+[metadata]
+content-hash = "fcc6ef9c5c68a57844a39f97114792e264fda7dfae2f18c26f3094563dfcdc25"
+python-versions = "^3.7"
+
+[metadata.hashes]
+django = ["2cfb83859bfaa10e2bd586340bead27c69fdcaa21fa683a008cc712482c26726", "7a6ebe254ab126510da143628d019ca8d6da2de49d7682bf046c03713a3c2c61"]
