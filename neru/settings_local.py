@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 # TODO: Add file for common settings shared by both local and prod
+from neru._settings_common import *
 
 import os
 
