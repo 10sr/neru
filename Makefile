@@ -1,7 +1,11 @@
 NERU_ENV ?= local
 
+ADMIN_PASSWORD ?= pw
+
+LOCAL_USER_PASSWORD := pw
+
 APP := app
-project := neru
+project := proj
 
 poetry := poetry
 
@@ -27,6 +31,13 @@ sqlmigrate:
 
 createsuperuser:
 	${manage_py} createsuperuser
+
+create_admin_user:
+	env ADMIN_PASSWORD=${ADMIN_PASSWORD} ${manage_py} create_admin_user
+
+create_local_user:
+	test ${NERU_ENV} == local
+	env LOCAL_USER_PASSWORD=${LOCAL_USER_PASSWORD} ${manage_py} create_local_user
 
 shell:
 	${manage_py} shell
