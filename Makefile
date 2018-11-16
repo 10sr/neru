@@ -5,7 +5,7 @@ project := neru
 
 poetry := poetry
 
-manage_py := ${poetry} run env DJANGO_SETTINGS_MODULE=neru.settings_${NERU_ENV} python3 manage.py
+manage_py := ${poetry} run env NERU_ENV=${NERU_ENV} python3 manage.py
 
 installdeps:
 	${poetry} install
