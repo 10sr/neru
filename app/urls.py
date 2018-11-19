@@ -7,6 +7,14 @@ app_name = "app"
 urlpatterns = [
     url(r"^$", views.index, name="index"),
     #url(r"^login$", auth_views.login, name="login"),
+    # Following names are imported from django.contrib.auth.urls
+    # - login
+    # - logout
+    # - password_change
+    # - password_reset
+    # - password_reset_done
+    # - password_reset_confirm
+    # - password_reset_complete
     url(r"^", include("django.contrib.auth.urls")),
     url(r"^login_required_page$", views.login_required_page, name="login_required_page"),
     # TODO: Fix URL to use
