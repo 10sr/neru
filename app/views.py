@@ -27,7 +27,10 @@ def index(request):
 
 @login_required
 def login_required_page(request):
-    return HttpResponse(f"""Hell, {request.user}!""")
+    return HttpResponse(f"""
+    Hell, {request.user}!
+    <a href="{reverse("app:index")}">Back to Top</a>
+    """)
 
 
 def user(request, username):
