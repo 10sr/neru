@@ -13,9 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 def redirect_root(request):
     return HttpResponseRedirect("neru/")
@@ -25,3 +27,6 @@ urlpatterns = [
     url(r"^neru/", include("app.urls")),
     url(r"^$", redirect_root)
 ]
+
+# What is the best way to define LOGIN_URL?
+assert reverse("app:login") == settings.LOGIN_URL
