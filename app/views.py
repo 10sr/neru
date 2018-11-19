@@ -1,5 +1,6 @@
 import datetime
 
+from django.conf import settings
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.template import loader
 from django.utils import timezone
@@ -10,7 +11,11 @@ from app import models
 
 
 def index(request):
-    return HttpResponse("""hell, world!
+    return HttpResponse(f"""<p>hell, world!</p>
+    <p>
+    {request.user.is_authenticated}
+    <a href="{reverse("app:login")}?next={request.path}">Login</a>
+    </p>
     <a href="admin">admin</a>
     <a href="user/10sr">10sr</a>
     <a href="userview/10sr">10sr view</a>

@@ -6,14 +6,15 @@ from django.core.management.base import BaseCommand, CommandError
 
 
 class Command(BaseCommand):
-    help = "Create admin user"
+    help = "Create local user"
 
     def add_arguments(self, parser):
         return
 
     def handle(self, *args, **kargs):
+        assert os.environ["NERU_ENV"] == "local", "Do not use this command in production"
         username = "user"
-        password = os.environ["LOCAL_USER_PASSWORD"]
+        password = "pw"
 
         try:
             user = User.objects.get(username=username)
