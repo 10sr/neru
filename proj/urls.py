@@ -19,13 +19,13 @@ from django.contrib import admin
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
-def redirect_root(request):
+def _redirect_root(request):
     return HttpResponseRedirect("neru/")
 
 urlpatterns = [
     url(r"^neru/admin/", admin.site.urls),
     url(r"^neru/", include("app.urls")),
-    url(r"^$", redirect_root)
+    url(r"^$", _redirect_root)
 ]
 
 # What is the best way to define LOGIN_URL?
