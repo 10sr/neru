@@ -56,7 +56,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'proj.urls'
 
-# TODO: Use jinja2
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
