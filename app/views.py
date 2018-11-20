@@ -15,8 +15,8 @@ def index(request):
     return HttpResponse(f"""<p>hell, world!</p>
     <p>
     {request.user.is_authenticated}
-    <a href="{reverse("app:login")}?next={request.path}">Login</a>
-    <a href="{reverse("app:logout")}?next={request.path}">Logout</a>
+    <a href="{reverse("login")}?next={request.path}">Login</a>
+    <a href="{reverse("logout")}?next={request.path}">Logout</a>
     </p>
     <a href="{reverse("app:login_required_page")}">login_required_page</a>
     <a href="admin">admin</a>

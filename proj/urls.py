@@ -24,9 +24,16 @@ def _redirect_root(request):
 
 urlpatterns = [
     url(r"^neru/admin/", admin.site.urls),
+    #url(r"^login$", auth_views.login, name="login"),
+    # Following names are imported from django.contrib.auth.urls
+    # - login
+    # - logout
+    # - password_change
+    # - password_reset
+    # - password_reset_done
+    # - password_reset_confirm
+    # - password_reset_complete
+    url(r"^neru/", include("django.contrib.auth.urls")),
     url(r"^neru/", include("app.urls")),
     url(r"^$", _redirect_root)
 ]
-
-# What is the best way to define LOGIN_URL?
-assert reverse("app:login") == settings.LOGIN_URL
