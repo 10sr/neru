@@ -5,7 +5,7 @@ description = "Neru"
 authors = ["10sr <8.slashes@gmail.com>"]
 license = "Unlicense"
 packages = [
-    { include = "neru" },
+    { include = "proj" },
     { include = "app" },
 ]
 
