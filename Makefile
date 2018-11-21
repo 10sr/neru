@@ -45,7 +45,5 @@ manage_py:
 check:
 	${poetry} check
 
-test: test_app
-
-test_app:
-	${manage_py} test app
+test:
+	${manage_py} test
