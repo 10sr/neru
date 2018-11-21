@@ -11,7 +11,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
-from proj.settings_common import *
+from proj._settings_common import *
 
 SECRET_KEY = os.environ["NERU_SECRET_KEY"]
 

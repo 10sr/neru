@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
-from proj.settings_common import *
+from proj._settings_common import *
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
