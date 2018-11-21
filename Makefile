@@ -7,7 +7,10 @@ project := proj
 
 poetry := poetry
 
-manage_py := ${poetry} run env NERU_ENV=${NERU_ENV} python3 manage.py
+manage_py := ${poetry} run env NERU_ENV=${NERU_ENV} NERU_BASE_DIR=${CURDIR} python3 manage.py
+
+env:
+	env
 
 installdeps:
 	${poetry} install

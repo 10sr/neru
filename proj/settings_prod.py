@@ -13,10 +13,6 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 from proj.settings_common import *
 
-import os
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 SECRET_KEY = os.environ["NERU_SECRET_KEY"]
 
 DEBUG = False
@@ -25,16 +21,6 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
-INSTALLED_APPS = [
-    'app.apps.AppConfig',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -45,8 +31,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-ROOT_URLCONF = 'proj.urls'
 
 TEMPLATES = [
     {
@@ -63,9 +47,6 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = 'proj.wsgi.application'
-
 
 # Database
 
@@ -93,21 +74,3 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
-# Internationalization
-
-LANGUAGE_CODE = 'ja-jp'
-
-TIME_ZONE = 'Asia/Tokyo'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-
-STATIC_URL = '/neru/static/'
