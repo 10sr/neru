@@ -15,9 +15,9 @@ class Command(BaseCommand):
     def handle(self, *args, **kargs):
         try:
             user = models.TwitterUser.objects.get(username=_twitteruser_username)
-            print("TwitterUser `{}' already exists".format(user))
+            self.stdout.write("TwitterUser `{}' already exists".format(user))
         except models.TwitterUser.DoesNotExist as e:
-            print("TwitterUser {} not exists, creating".format(_twitteruser_username))
+            self.stdout.write("TwitterUser {} not exists, creating".format(_twitteruser_username))
             models.TwitterUser(
                 username=_twitteruser_username,
                 id_str=_twitteruser_id_str

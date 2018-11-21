@@ -24,5 +24,5 @@ class Command(BaseCommand):
         user.is_superuser = True
         user.is_staff = True
         user.save()
-        print(f"User {user} updated.")
+        self.stdout.write(f"User {user} updated.")
         return

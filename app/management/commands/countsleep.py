@@ -10,7 +10,7 @@ class Command(BaseCommand):
         return
 
     def handle(self, *args, **kargs):
-        print(args)
-        print(kargs)
-        print(TimeOfSleep.objects.count())
+        self.stdout.write(args)
+        self.stdout.write(kargs)
+        self.stdout.write(TimeOfSleep.objects.count())
         return
