@@ -38,6 +38,7 @@ class UserViewTests(TestCase):
     def test_user_not_exists(self):
         response = self.client.get(reverse("app:user", args=("hoe",)))
         self.assertEqual(response.status_code, 404)
+        self.assertEqual(False)
         return
 
     def test_user_exists(self):
