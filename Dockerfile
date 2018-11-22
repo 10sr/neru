@@ -1,16 +1,16 @@
 FROM python:3
 
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+#SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Django not work without this!
 ENV PYTHONUNBUFFERED 1
 
 WORKDIR /root/app
 
-#RUN pip3 install "poetry>=0.12"
+RUN pip3 install "poetry>=0.12"
 ENV POETRY_VERSION 0.12.9
-RUN curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
-ENV PATH=/root/.poetry/bin:$PATH
+#RUN curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
+#ENV PATH=/root/.poetry/bin:$PATH
 RUN poetry config settings.virtualenvs.create false
 
 COPY pyproject.toml poetry.lock ./
