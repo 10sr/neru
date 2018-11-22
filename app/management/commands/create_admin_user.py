@@ -13,7 +13,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kargs):
         username = "10sr"
-        password = os.environ["ADMIN_PASSWORD"]
+        password = os.environ.get("ADMIN_PASSWORD", "")
+        assert password, "Aborting: ADMIN_PASSWORD is empty"
 
         try:
             user = User.objects.get(username=username)

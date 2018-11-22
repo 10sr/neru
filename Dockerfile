@@ -30,4 +30,4 @@ ENV PYTHONUNBUFFERED 1
 
 # ENTRYPOINT ["poetry", "run"]
 # CMD ["./manage.py", "runserver", "0.0.0.0:9099"]
-CMD ["make", "migrate", "runserver"]
+CMD ["make", "migrate", "create_admin_user", "runserver"]

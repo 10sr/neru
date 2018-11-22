@@ -2,8 +2,6 @@ NERU_ENV ?= local
 NERU_PORT ?= 9099
 NERU_HOST ?= 0.0.0.0
 
-ADMIN_PASSWORD ?= pw
-
 APP := app
 project := proj
 
@@ -36,7 +34,7 @@ createsuperuser:
 	${manage_py} createsuperuser
 
 create_admin_user:
-	env ADMIN_PASSWORD=${ADMIN_PASSWORD} ${manage_py} create_admin_user
+	${manage_py} create_admin_user
 
 create_local_user:
 	${manage_py} create_local_user
