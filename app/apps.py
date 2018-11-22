@@ -1,4 +1,4 @@
-import django.apps.AppConfig
+import django.apps
 
 
 class AppConfig(django.apps.AppConfig):

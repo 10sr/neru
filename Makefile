@@ -9,6 +9,8 @@ poetry := poetry
 
 manage_py := ${poetry} run env NERU_ENV=${NERU_ENV} NERU_BASE_DIR=${CURDIR} python3 manage.py
 
+check: test mypy
+
 env:
 	env
 
