@@ -50,3 +50,13 @@ check:
 
 test:
 	${manage_py} test
+
+
+###########
+# Docker
+
+docker-build:
+	docker build . -t local/neru
+
+docker-run:
+	docker run -p 9099:9099 local/neru

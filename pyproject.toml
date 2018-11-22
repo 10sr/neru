@@ -4,10 +4,10 @@ version = "0.1.0"
 description = "Neru"
 authors = ["10sr <8.slashes@gmail.com>"]
 license = "Unlicense"
-packages = [
-    { include = "proj" },
-    { include = "app" },
-]
+# packages = [
+#     { include = "proj" },
+#     { include = "app" },
+# ]
 
 [tool.poetry.dependencies]
 python = "^3.7"
