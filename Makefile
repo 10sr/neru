@@ -61,3 +61,10 @@ docker-build:
 # TODO: Add file like docker_local.env
 docker-run:
 	docker run -p 9099:9099 local/neru
+
+
+#########
+# mypy
+
+mypy:
+	${poetry} run mypy --config-file .mypy.ini -p app -p proj -p tests

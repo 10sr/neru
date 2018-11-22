@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+from typing import Dict, List
 
 from proj._settings_common import *
 
@@ -24,7 +25,7 @@ SECRET_KEY = '_up*=0su=d#cmn-$u)34z-cn%%6$2h9@*7%z=of&2w*fr5*51)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS: List[str] = []
 
 
 # Application definition
@@ -69,4 +70,4 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = []
+AUTH_PASSWORD_VALIDATORS: List[Dict[str, str]] = []

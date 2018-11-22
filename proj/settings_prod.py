@@ -11,13 +11,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
+from typing import List
+
 from proj._settings_common import *
 
 SECRET_KEY = os.environ["NERU_SECRET_KEY"]
 
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS: List[str] = []
 
 
 # Application definition
