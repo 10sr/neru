@@ -58,5 +58,6 @@ test:
 docker-build:
 	docker build . -t local/neru
 
+# TODO: Add file like docker_local.env
 docker-run:
 	docker run -p 9099:9099 local/neru
