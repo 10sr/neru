@@ -35,8 +35,8 @@ python-versions = "*"
 version = "1.1.0"
 
 [metadata]
-content-hash = "0c696260cef213853cc4cae813c07c713cbe8a6f6a1cae08cd6b13e569355dd4"
-python-versions = "^3.7"
+content-hash = "eb4219015228c82971d2609a0518cd7ff5397351586b0d29abf3342a76fadc7e"
+python-versions = ">= 3.6"
 
 [metadata.hashes]
 django = ["2cfb83859bfaa10e2bd586340bead27c69fdcaa21fa683a008cc712482c26726", "7a6ebe254ab126510da143628d019ca8d6da2de49d7682bf046c03713a3c2c61"]

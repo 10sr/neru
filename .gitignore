@@ -97,7 +97,7 @@ ENV/
 # neru project local
 
 db.sqlite3
-
+neru/
 
 # mypy files
 .mypy_cache/
