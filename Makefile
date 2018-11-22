@@ -1,4 +1,6 @@
 NERU_ENV ?= local
+NERU_PORT ?= 9099
+NERU_HOST ?= 0.0.0.0
 
 ADMIN_PASSWORD ?= pw
 
@@ -16,7 +18,7 @@ installdeps:
 	${poetry} install
 
 runserver:
-	${manage_py} runserver
+	${manage_py} runserver ${NERU_HOST}:${NERU_PORT}
 
 # https://docs.djangoproject.com/en/1.10/intro/tutorial02/#database-setup
 migrate:
