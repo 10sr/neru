@@ -7,12 +7,14 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [("app", "0004_auto_20181029_1314")]
+    dependencies = [
+        ('app', '0004_auto_20181029_1314'),
+    ]
 
     operations = [
         migrations.AddField(
-            model_name="timeofsleep",
-            name="note",
-            field=models.CharField(default="", max_length=500),
-        )
+            model_name='timeofsleep',
+            name='note',
+            field=models.CharField(default='', max_length=500),
+        ),
     ]

@@ -9,27 +9,17 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = []
+    dependencies = [
+    ]
 
     operations = [
         migrations.CreateModel(
-            name="TimeOfSleep",
+            name='TimeOfSleep',
             fields=[
-                (
-                    "id",
-                    models.AutoField(
-                        auto_created=True,
-                        primary_key=True,
-                        serialize=False,
-                        verbose_name="ID",
-                    ),
-                ),
-                ("time_of_sleep", models.DateTimeField(verbose_name="Time Of Sleep")),
-                (
-                    "datetime",
-                    models.DateTimeField(verbose_name="Time when record inserted"),
-                ),
-                ("id_str", models.CharField(max_length=50)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('time_of_sleep', models.DateTimeField(verbose_name='Time Of Sleep')),
+                ('datetime', models.DateTimeField(verbose_name='Time when record inserted')),
+                ('id_str', models.CharField(max_length=50)),
             ],
-        )
+        ),
     ]
