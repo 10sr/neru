@@ -2,11 +2,12 @@
 import os
 import sys
 
-os.environ.setdefault("NERU_ENV", "local")
 
 if sys.argv[1] == "test":
+    os.environ["NERU_ENV"] = "test"
     os.environ["DJANGO_SETTINGS_MODULE"] = "tests.settings"
 else:
+    os.environ.setdefault("NERU_ENV", "local")
     os.environ["DJANGO_SETTINGS_MODULE"] = f"proj.settings_{os.environ['NERU_ENV']}"
 
 from django.core.management import execute_from_command_line
