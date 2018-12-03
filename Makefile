@@ -76,7 +76,8 @@ mypy:
 # black
 
 black:
-	${poetry} run black app proj tests
+	${poetry} run black app proj tests --exclude '/app/migrations/'
 
 black-check:
-	${poetry} run black --check app proj tests
+	${poetry} run black --check app proj tests --exclude '/app/migrations/'
+
