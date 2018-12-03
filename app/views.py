@@ -44,6 +44,7 @@ def user(request, username):
     except IndexError:
         raise Http404("User {} not found".format(username))
 
+    # TODO: Rename to .dtl (Django Tepmlate Language)
     template = loader.get_template("app/user.html.tpl")
     # I don't like django.shortcuts.render.
     return HttpResponse(
