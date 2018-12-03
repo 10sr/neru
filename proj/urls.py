@@ -19,12 +19,14 @@ from django.contrib import admin
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
+
 def _redirect_root(request):
     return HttpResponseRedirect("neru/")
 
+
 urlpatterns = [
     url(r"^neru/admin/", admin.site.urls),
-    #url(r"^login$", auth_views.login, name="login"),
+    # url(r"^login$", auth_views.login, name="login"),
     # Following names are imported from django.contrib.auth.urls
     # - login
     # - logout
@@ -35,5 +37,5 @@ urlpatterns = [
     # - password_reset_complete
     url(r"^neru/", include("django.contrib.auth.urls")),
     url(r"^neru/", include("app.urls")),
-    url(r"^$", _redirect_root)
+    url(r"^$", _redirect_root),
 ]

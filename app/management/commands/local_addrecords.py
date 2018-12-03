@@ -17,9 +17,10 @@ class Command(BaseCommand):
             user = models.TwitterUser.objects.get(username=_twitteruser_username)
             self.stdout.write("TwitterUser `{}' already exists".format(user))
         except models.TwitterUser.DoesNotExist as e:
-            self.stdout.write("TwitterUser {} not exists, creating".format(_twitteruser_username))
+            self.stdout.write(
+                "TwitterUser {} not exists, creating".format(_twitteruser_username)
+            )
             models.TwitterUser(
-                username=_twitteruser_username,
-                id_str=_twitteruser_id_str
+                username=_twitteruser_username, id_str=_twitteruser_id_str
             ).save()
         return

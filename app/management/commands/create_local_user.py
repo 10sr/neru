@@ -12,7 +12,9 @@ class Command(BaseCommand):
         return
 
     def handle(self, *args, **kargs):
-        assert os.environ["NERU_ENV"] == "local", "Do not use this command in production"
+        assert (
+            os.environ["NERU_ENV"] == "local"
+        ), "Do not use this command in production"
         username = "user"
         password = "pw"
 

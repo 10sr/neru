@@ -7,21 +7,24 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('app', '0002_timeofsleep_username'),
-    ]
+    dependencies = [("app", "0002_timeofsleep_username")]
 
     operations = [
         migrations.CreateModel(
-            name='TwitterUsername',
+            name="TwitterUsername",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('id_str', models.CharField(max_length=50)),
-                ('username', models.CharField(max_length=20)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("id_str", models.CharField(max_length=50)),
+                ("username", models.CharField(max_length=20)),
             ],
         ),
-        migrations.RemoveField(
-            model_name='timeofsleep',
-            name='username',
-        ),
+        migrations.RemoveField(model_name="timeofsleep", name="username"),
     ]
