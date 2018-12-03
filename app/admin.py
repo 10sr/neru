@@ -16,15 +16,12 @@ admin.AdminSite.site_header = "Neru Admin"
 #     if inspect.isclass(e) and issubclass(e, Model):
 #         admin.site.register(e)
 
+
 class _TimeOfSleepAdmin(admin.ModelAdmin):
     # fields = ["id_str", "time_of_sleep", "note", "datetime"]
     fieldsets = [
-        (None, {
-            "fields": ["id_str", "datetime"]
-        }),
-        ("Neru info", {
-            "fields": ["time_of_sleep", "note"]
-        }),
+        (None, {"fields": ["id_str", "datetime"]}),
+        ("Neru info", {"fields": ["time_of_sleep", "note"]}),
     ]
 
 

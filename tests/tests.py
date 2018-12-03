@@ -7,28 +7,19 @@ from app import models
 
 def _create_time_of_sleep(time, id_str, note):
     return models.TimeOfSleep.objects.create(
-            time_of_sleep=now,
-            datetime=now,
-            id_str=id_str,
-            note=note
+        time_of_sleep=now, datetime=now, id_str=id_str, note=note
     )
 
 
 def _create_twitter_user(id_str, username):
-    return models.TwitterUser.objects.create(
-        id_str=id_str,
-        username=username
-    )
+    return models.TwitterUser.objects.create(id_str=id_str, username=username)
 
 
 class TimeOfSleepTests(TestCase):
     def test_add_record(self):
         now = timezone.now()
         tos = models.TimeOfSleep(
-            time_of_sleep=now,
-            datetime=now,
-            id_str="12345",
-            note="NOTE"
+            time_of_sleep=now, datetime=now, id_str="12345", note="NOTE"
         )
         print(str(tos))
         return

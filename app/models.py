@@ -22,6 +22,7 @@ class TimeOfSleep(models.Model):
     def str(self):
         return str(self)
 
+
 class TwitterUser(models.Model):
     # Twitter id in number
     id_str = models.CharField(max_length=50)
@@ -30,9 +31,7 @@ class TwitterUser(models.Model):
     username = models.CharField(max_length=20)
 
     def __str__(self):
-        return "id_str: {}, username: {}".format(
-            self.id_str, self.username
-        )
+        return "id_str: {}, username: {}".format(self.id_str, self.username)
 
     @property
     def str(self):

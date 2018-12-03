@@ -12,7 +12,8 @@ from app import models
 
 
 def index(request):
-    return HttpResponse(f"""<p>hell, world!</p>
+    return HttpResponse(
+        f"""<p>hell, world!</p>
     <p>
     {request.user.is_authenticated}
     <a href="{reverse("login")}?next={request.path}">Login</a>
@@ -22,15 +23,18 @@ def index(request):
     <a href="admin">admin</a>
     <a href="user/10sr">10sr</a>
     <a href="userview/10sr">10sr view</a>
-    """)
+    """
+    )
 
 
 @login_required
 def login_required_page(request):
-    return HttpResponse(f"""
+    return HttpResponse(
+        f"""
     Hell, {request.user}!
     <a href="{reverse("app:index")}">Back to Top</a>
-    """)
+    """
+    )
 
 
 def user(request, username):
@@ -42,10 +46,15 @@ def user(request, username):
 
     template = loader.get_template("app/user.html.tpl")
     # I don't like django.shortcuts.render.
-    return HttpResponse(template.render({
-        "user": user,
-        "sleeps": models.TimeOfSleep.objects.filter(id_str=user.id_str)
-    }, request))
+    return HttpResponse(
+        template.render(
+            {
+                "user": user,
+                "sleeps": models.TimeOfSleep.objects.filter(id_str=user.id_str),
+            },
+            request,
+        )
+    )
 
 
 class UserView(generic.DetailView):
@@ -64,19 +73,14 @@ def user_addneru(request, username):
     except KeyError:
         template = loader.get_template("app/user.html.tpl")
         return HttpResponse(
-            template.render({
-                "sleeps": [],
-                "error_message": "note not given",
-                "user": user
-            })
+            template.render(
+                {"sleeps": [], "error_message": "note not given", "user": user}
+            )
         )
 
     now = timezone.now()
 
     models.TimeOfSleep(
-        id_str=user.id_str,
-        datetime=now,
-        time_of_sleep=now,
-        note=note
+        id_str=user.id_str, datetime=now, time_of_sleep=now, note=note
     ).save()
     return HttpResponseRedirect(reverse("app:user", args=(username,)))
