@@ -9,7 +9,7 @@ poetry := poetry
 
 manage_py := ${poetry} run env NERU_ENV=${NERU_ENV} NERU_BASE_DIR=${CURDIR} python3 manage.py
 
-check: test mypy
+check: test mypy black-check
 
 env:
 	env
@@ -70,3 +70,13 @@ docker-run:
 
 mypy:
 	${poetry} run mypy --config-file .mypy.ini -p app -p proj -p tests
+
+
+#########
+# black
+
+black:
+	${poetry} run black app proj tests
+
+black-check:
+	${poetry} run black --check app proj tests
