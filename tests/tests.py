@@ -1,3 +1,5 @@
+import unittest
+
 from django.utils import timezone
 from django.test import TestCase
 from django.urls import reverse
@@ -29,11 +31,17 @@ class UserViewTests(TestCase):
     def test_user_not_exists(self):
         response = self.client.get(reverse("app:user", args=("hoe",)))
         self.assertEqual(response.status_code, 404)
-        self.assertEqual(False)
         return
 
     def test_user_exists(self):
         _create_twitter_user("12345", "10sr")
         response = self.client.get(reverse("app:user", args=("10sr",)))
         self.assertEqual(response.status_code, 200)
+        return
+
+
+class TestFailure(TestCase):
+    @unittest.skip("demonstrating failing and skipping")
+    def test_failure(self):
+        self.assertEqual(True, False)
         return
