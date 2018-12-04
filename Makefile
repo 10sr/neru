@@ -16,7 +16,7 @@ project := proj
 
 poetry := poetry
 
-python3 := ${poetry} run env NERU_ENV=${NERU_ENV} NERU_BASE_DIR=${CURDIR} python3
+python3 := ${poetry} run env NERU_ENV=${NERU_ENV} python3
 manage_py := ${python3} manage.py
 
 # Make all targets phony
