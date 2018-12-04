@@ -11,6 +11,9 @@ poetry := poetry
 
 manage_py := ${poetry} run env NERU_ENV=${NERU_ENV} NERU_BASE_DIR=${CURDIR} python3 manage.py
 
+# Make all targets phony
+.PHONY: $(MAKECMDGOALS)
+
 check: poetry-check app-test mypy black-check
 	echo ${_Undefined}
 
