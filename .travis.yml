@@ -4,6 +4,7 @@ python:
   - "3.6"
   #- "3.7"
   #- "3.7-dev"  # black --check fails...
+  - pypy
 
 install:
   - pip install poetry
