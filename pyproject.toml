@@ -11,7 +11,7 @@ license = "Unlicense"
 
 [tool.poetry.dependencies]
 python = ">= 3.6"
-Django = "=1.10.6"
+Django = "=1.11.17"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.641.0"
