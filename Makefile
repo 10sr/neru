@@ -1,3 +1,5 @@
+MAKEFLAGS += --warn-undefined-variables
+
 NERU_ENV ?= local
 NERU_PORT ?= 9099
 NERU_HOST ?= 0.0.0.0
@@ -10,6 +12,7 @@ poetry := poetry
 manage_py := ${poetry} run env NERU_ENV=${NERU_ENV} NERU_BASE_DIR=${CURDIR} python3 manage.py
 
 check: poetry-check app-test mypy black-check
+	echo ${_Undefined}
 
 env:
 	env
