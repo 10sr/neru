@@ -2,14 +2,14 @@ NERU_ENV ?= local
 NERU_PORT ?= 9099
 NERU_HOST ?= 0.0.0.0
 
-APP := app
+app := app
 project := proj
 
 poetry := poetry
 
 manage_py := ${poetry} run env NERU_ENV=${NERU_ENV} NERU_BASE_DIR=${CURDIR} python3 manage.py
 
-check: test mypy black-check
+check: poetry-check app-test mypy black-check
 
 env:
 	env
@@ -18,28 +18,22 @@ installdeps:
 	${poetry} install
 
 runserver:
-	${manage_py} runserver ${NERU_HOST}:${NERU_PORT}
+	${manage_py} $@ ${NERU_HOST}:${NERU_PORT}
 
 # https://docs.djangoproject.com/en/1.10/intro/tutorial02/#database-setup
 migrate:
-	${manage_py} migrate
+	${manage_py} $@
 
 # https://docs.djangoproject.com/en/1.10/intro/tutorial02/#activating-models
 makemigrations:
-	${manage_py} makemigrations ${APP}
+	${manage_py} $@ ${app}
 
 # Print sql query for migration
 sqlmigrate:
-	${manage_py} sqlmigrate ${APP} ${target}
+	${manage_py} $@ ${app} ${target}
 
-createsuperuser:
-	${manage_py} createsuperuser
-
-create_admin_user:
-	${manage_py} create_admin_user
-
-create_local_user:
-	${manage_py} create_local_user
+createsuperuser create_admin_user create_local_user:
+	${manage_py} $@
 
 shell:
 	${manage_py} shell
@@ -47,10 +41,10 @@ shell:
 manage_py:
 	${manage_py} ${command}
 
-check:
+poetry-check:
 	${poetry} check
 
-test:
+app-test:
 	${manage_py} test
 
 
@@ -75,9 +69,10 @@ mypy:
 #########
 # black
 
+black_targets := app proj tests --exclude '/app/migrations/'
+
 black:
-	${poetry} run black app proj tests --exclude '/app/migrations/'
+	${poetry} run black ${black_targets}
 
 black-check:
-	${poetry} run black --check app proj tests --exclude '/app/migrations/'
-
+	${poetry} run black --check ${black_targets}
