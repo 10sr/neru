@@ -1,4 +1,4 @@
-MAKEFLAGS += --warn-undefined-variables
+MAKEFLAGS += --warn-undefined-variables --no-builtin-rules --no-builtin-variable
 
 NERU_ENV ?= local
 NERU_PORT ?= 9099
