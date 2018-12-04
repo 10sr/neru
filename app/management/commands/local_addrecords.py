@@ -23,4 +23,4 @@ class Command(BaseCommand):
             models.TwitterUser(
                 username=_twitteruser_username, id_str=_twitteruser_id_str
             ).save()
-        return
+        # return
