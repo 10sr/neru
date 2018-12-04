@@ -34,7 +34,7 @@ installdeps:
 	${poetry} install
 
 runserver:
-	${manage_py} $@ ${NERU_HOST}:${NERU_PORT}
+	${manage_py} $@ '${NERU_HOST}:${NERU_PORT}'
 
 # https://docs.djangoproject.com/en/1.10/intro/tutorial02/#database-setup
 migrate:
@@ -72,7 +72,7 @@ docker-build:
 
 # TODO: Add file like docker_local.env
 docker-run:
-	docker run -p 9099:9099 local/neru
+	docker run -p '9099:9099' local/neru
 
 
 #########
