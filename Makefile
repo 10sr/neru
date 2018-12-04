@@ -1,8 +1,19 @@
-MAKEFLAGS += --warn-undefined-variables --no-builtin-rules --no-builtin-variable
-
 NERU_ENV ?= local
 NERU_PORT ?= 9099
 NERU_HOST ?= 0.0.0.0
+
+
+MAKEFLAGS += --warn-undefined-variables --no-builtin-rules --no-builtin-variable
+
+# https://stackoverflow.com/questions/10859916/how-to-treat-a-warning-as-an-error-in-a-makefile/29800774#29800774
+ifndef MAKECMDGOALS
+MAKECMDGOALS = check
+endif
+${MAKECMDGOALS}: fatal-on-warning
+fatal-on-warning:
+	! ${MAKE} -n ${MAKECMDGOALS} 2>&1 >/dev/null | grep 'warning:'
+
+
 
 app := app
 project := proj
@@ -15,7 +26,6 @@ manage_py := ${poetry} run env NERU_ENV=${NERU_ENV} NERU_BASE_DIR=${CURDIR} pyth
 .PHONY: $(MAKECMDGOALS)
 
 check: poetry-check app-test mypy black-check
-	echo ${_Undefined}
 
 env:
 	env
