@@ -77,6 +77,8 @@ docker-run:
 
 mypy:
 	${poetry} run mypy --config-file .mypy.ini -p app -p proj -p tests
+# TODO: This really works?
+#	${poetry} run mypy --config-file .mypy.ini .
 
 
 #########
