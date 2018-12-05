@@ -15,4 +15,5 @@ else:
 os.environ["NERU_BASE_DIR"] = str(Path(__file__).resolve().parent)
 
 from django.core.management import execute_from_command_line
+
 execute_from_command_line(sys.argv)

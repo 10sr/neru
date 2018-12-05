@@ -82,7 +82,7 @@ mypy:
 #########
 # black
 
-black_targets := app proj tests --exclude '/app/migrations/'
+black_targets := app proj tests
 
 black:
 	${poetry} run black ${black_targets}
