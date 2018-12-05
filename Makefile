@@ -82,10 +82,8 @@ mypy:
 #########
 # black
 
-black_targets := app proj tests
-
 black:
-	${poetry} run black ${black_targets}
+	${poetry} run black .
 
 black-check:
-	${poetry} run black --check ${black_targets}
+	${poetry} run black --check .
