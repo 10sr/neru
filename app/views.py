@@ -53,6 +53,7 @@ def user(request, username):
                 "user": user,
                 "sleeps": models.TimeOfSleep.objects.filter(id_str=user.id_str),
             },
+            # Requred for csrf_token
             request,
         )
     )
