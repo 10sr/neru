@@ -2,7 +2,8 @@
 
 import os
 
-LOGIN_URL = "/neru/login/"
+# Named URL Pattern
+LOGIN_URL = "login"
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.environ["NERU_BASE_DIR"]
